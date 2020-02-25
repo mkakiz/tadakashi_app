@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+  get 'comments/destroy'
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
@@ -24,4 +26,6 @@ Rails.application.routes.draw do
 
   get "/" => "home#top"
   get "about" => "home#about"
+
+  resources :comments, only: %i[create destroy]
 end
