@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :comments, only: %i[create destroy]
-  
+
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   get "login" => "users#login_form"
   get "users/:id/likes" => "users#likes"
 
+  get "posts" => "posts#index"
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
-  get "posts/:id" => "posts#show"
+  # get "posts/:id" => "posts#show"
+  get "posts/:id" => "posts#show", as: "post"
   post "posts/create" => "posts#create"
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"

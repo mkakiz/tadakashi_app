@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     if comment.save
       flash[:notice] = 'Comment was posted'
-      redirect_to comment.post
+      redirect_to post_path(comment.post_id)
     else
       redirect_to :back, flash: {
         comment: comment,
