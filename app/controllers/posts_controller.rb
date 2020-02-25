@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
 
-    @comment = @post.comments.new
+    @comment = Comment.new(post_id: @post.id)
   end
 
   def new
