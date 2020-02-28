@@ -28,5 +28,10 @@
         </div>
       <% end %>
     </div>
+    <div class="p-comment__list">
+      <div class="p-comment_listTitle">Comment</div>
+      <%= render @post.comments %>
+    </div>
+    <%= render partial: 'comments/form', locals: { comment: @comment } %>
   </div>
 </div>
