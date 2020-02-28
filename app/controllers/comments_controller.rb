@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     if comment.save
+      comment.user_id = current_user.id
+      #user_id = Post.find_by(id: params[:id])
       flash[:notice] = 'Comment was posted'
       redirect_to post_path(comment.post_id)
     else
@@ -21,6 +23,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:post_id, :name, :comment)
+    params.require(:comment).permit(:post_id, :name, :comment, :user_id)
   end
 end

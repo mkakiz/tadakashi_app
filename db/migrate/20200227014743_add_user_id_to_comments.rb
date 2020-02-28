@@ -1,9 +1,6 @@
 class AddUserIdToComments < ActiveRecord::Migration[5.2]
-  def up
-    add_column :posts, :user_id, :integer
-    change_column :posts, :user_id, :integer, :null => false
-  end
-  def down
-    remove_column :posts, :user_id, :integer
+  def change
+    change_column_null :posts, :user_id, false
+    change_column_null :likesA, :user_id, false
   end
 end
