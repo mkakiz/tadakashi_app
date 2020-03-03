@@ -17,22 +17,6 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe 'POST #create' do
-    context 'right user infor is passed' do
-      let(:params) do
-        { user: {
-            name: 'user',
-            password: 'password',
-            password_confirmation: 'password',
-          }
-        }
-      end
-
-      it 'a user is added' do
-        expect { post :create, params: params }.to change(User, :count).by(1)
-      end
-    end
-  end
 end
 
 
