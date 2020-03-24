@@ -4,7 +4,7 @@
     <span><%= comment.name %></span>
     <span><%= comment.created_at %></span>
     <% if comment.user_id == @current_user.id %>
-      <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'OK to delete?' }, class: 'btn btn-primary' %>
+      <%= link_to '削除', comment, method: :delete, data: { confirm: '削除してもいいですか?' }, class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>

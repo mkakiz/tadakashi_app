@@ -73,7 +73,7 @@ class UsersController < ApplicationController
 
   def guest_login
     user = User.find_or_create_by(email: 'guest@example.com')
-    user.name = "GuestUser"
+    user.name = "ゲストユーザー"
     user.password = SecureRandom.urlsafe_base64
     user.image_name = "default_user.jpg"
     user.save if !user.id #idがない場合、DBに保存してIDを生成.コラムは上に記載
