@@ -2,12 +2,9 @@
   <p><%= simple_format(comment.comment) %></p>
   <div class="p-comment__bottomLine">
     <span><%= comment.name %></span>
-    <span><%= comment.created_at.to_s(:datetime_jp) %></span>
-    <%# <span><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'OK to delete?' } %></span>
-
+    <span><%= comment.created_at %></span>
     <% if comment.user_id == @current_user.id %>
-      <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'OK to delete?' } %>
+      <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'OK to delete?' }, class: 'btn btn-primary' %>
     <% end %>
-
   </div>
 </div>
