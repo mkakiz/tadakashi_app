@@ -28,12 +28,14 @@
         </div>
       <% end %>
     </div>
-    <div class="p-comment__list">
-      <div class="p-comment_listTitle">コメント一覧</div>
-        <div class="p-comment__formBox">
-          <%= render @post.comments %>
-        </div>
-    </div>
+    <% if @post.comments.any? %>
+      <div class="p-comment__list">
+        <div class="p-comment_listTitle">コメント一覧</div>
+          <div class="p-comment__formBox">
+            <%= render @post.comments %>
+          </div>
+      </div>
+    <% end %>
     <%= render partial: 'comments/form', locals: { comment: @comment } %>
   </div>
 </div>
