@@ -8,6 +8,9 @@
       <p>
         <%= @post.content %>
       </p>
+      <div class="post-image">
+        <img src="<%= "/post_images/#{@post.post_image_name}" %>">
+      </div>
       <div class="post-time">
         <%= @post.created_at %>
       </div>

@@ -67,6 +67,13 @@ $shadow-color: #c1ced7;
   }
 }
 
+.post-image {
+  img {
+    height: 200px;
+    width: auto;
+  }
+}
+
 .post-time {
   color: #8899a6;
   margin-bottom: 10px;
