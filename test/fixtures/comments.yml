@@ -4,8 +4,10 @@ one:
   post: one
   name: MyString
   comment: MyText
+  user_id: 1
 
 two:
   post: two
   name: MyString
   comment: MyText
+  user_id: 2 
