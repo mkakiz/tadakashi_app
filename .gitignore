@@ -31,3 +31,6 @@
 /config/master.key
 
 git rm --cached .env
+
+# Ignore Spring files.
+/spring/*.pid
