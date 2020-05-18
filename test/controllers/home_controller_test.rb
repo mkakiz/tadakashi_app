@@ -12,5 +12,10 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "#{@app_title}"
   end
 
+  test "should get top" do
+    get "/"
+    assert_response :success
+    assert_select "title", "#{@app_title}"
+  end
 
 end
