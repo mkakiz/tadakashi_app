@@ -6,8 +6,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       email: 'testuser@example.com',
       password: '123456',
     }
-    #get "/posts/index"
-    follow_redirect!
+    get "/posts/index"
+    get "/posts/new"
+    get "/users/index"
+    #follow_redirect!
     assert_response :success
   end
 end
