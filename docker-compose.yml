@@ -17,5 +17,10 @@ services:
       - db-volume:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8880:8080
 volumes:
   db-volume:

@@ -3,3 +3,4 @@ one:
  name: test user
  email: testuser@example.com
  password_digest: <%= User.digest('123456') %>
+ image_name: test_image_name
