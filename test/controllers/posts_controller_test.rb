@@ -9,7 +9,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     get "/posts/index"
     get "/posts/new"
     get "/users/index"
-    #follow_redirect!
     assert_response :success
   end
 end
