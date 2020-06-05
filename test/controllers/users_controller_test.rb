@@ -11,7 +11,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "invalid signup information" do
     post "/logout"
-    binding.pry
     get "/signup"
     assert_no_difference 'User.count' do
       post "/users/create", params: {
@@ -46,6 +45,22 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
                             password: "",
                           }
     assert_template "users/edit"
+  end
+
+  test "successful edit" do
+    get "/users/#{@user.id}/edit"
+    assert_template "users/edit"
+    post "/users/#{@user.id}/update", params: {
+                            name:  "updated",
+                            email: "updated@example.com",
+                            password: "123456",
+                          }
+
+    follow_redirect!
+    assert_template 'users/show'
+    
+    edited_user = User.find(@user.id)
+    assert_not_equal @user.name, edited_user.name
   end
 
 end
