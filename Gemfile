@@ -45,12 +45,14 @@ group :development, :test do
   gem 'rails-flog', require: 'flog'
   gem 'rspec-rails', '~> 3.8'
   gem 'rails-controller-testing'
+  gem 'factory_bot_rails', '~> 4.10.0'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'pry-byebug'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
