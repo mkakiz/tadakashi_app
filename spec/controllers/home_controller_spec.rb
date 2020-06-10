@@ -6,4 +6,6 @@ RSpec.describe HomeController, type: :controller do
     get :about
     expect(response).to be_success
   end
+
+
 end
