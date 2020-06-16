@@ -7,7 +7,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       email: 'testuser@example.com',
       password: '123456',
     }
-  end  
+  end
 
   test "invalid signup information" do
     post "/logout"
@@ -58,7 +58,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     follow_redirect!
     assert_template 'users/show'
-    
+
     edited_user = User.find(@user.id)
     assert_not_equal @user.name, edited_user.name
   end

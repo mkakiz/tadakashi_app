@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
     user = User.new(email: nil)
     user.valid?
     expect(user.errors[:email]).to include("can't be blank")
-  end  
+  end
 
   it "is invalid without password" do
     user = User.new(password: nil)
@@ -37,7 +37,7 @@ RSpec.describe User, type: :model do
     user = User.new(
       name: "user01",
       email: "user01@example.com",
-      password: "123456",      
+      password: "123456",
     )
     user.valid?
     expect(user.errors[:email]).to include("has already been taken")
@@ -75,5 +75,5 @@ describe User do
   end
 
 
-  
+
 end
