@@ -77,8 +77,8 @@ RSpec.describe "SignUp & Logins", type: :request do
                             email: "updating@example.com",
                           }
       expect(response).to redirect_to "/users/#{user02.id}"
-      edited_user = User.find(user02.id)
-      expect(user02.name).not_to eq edited_user.name
+      editted_user = User.find(user02.id)
+      expect(user02.name).not_to eq editted_user.name
     end
   end
 
