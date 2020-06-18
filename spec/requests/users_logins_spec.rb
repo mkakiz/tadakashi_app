@@ -9,10 +9,9 @@ RSpec.describe "SignUp & Logins", type: :request do
         password: user.password,
       }
       expect(user).to be_valid
-      #expect(response).to have_http_status(:redirect)
       expect(response).to redirect_to "/posts/index"
-      #get posts_index_path
-      #expect(response).to have_http_status(:ok)
+      get posts_index_path
+      expect(response).to have_http_status(:ok)
     end
   end
 
