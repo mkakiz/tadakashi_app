@@ -1,21 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe "Likes", type: :request do
+  before do
+    post login_path, params: {
+      email: user02.email,
+      password: user02.password,
+    }
+    get posts_index_path
+    expect(response).to have_http_status(:ok)
+    expect {
+      post posts_create_path, params: {
+        content: 'text',
+        user_id: user02.id,
+      }
+    }.to change(Post, :count).by(1)
+  end
+
   describe "Like Create" do
     let(:user02) { FactoryBot.create(:user02) }
-    it "Add Like" do
-      post login_path, params: {
-        email: user02.email,
-        password: user02.password,
-      }
-      get posts_index_path
-      expect(response).to have_http_status(:ok)
-      expect {
-        post posts_create_path, params: {
-          content: 'text',
-          user_id: user02.id,
-        }
-      }.to change(Post, :count).by(1)
+    it "adds like" do
       post = Post.find_by(content: 'text')
       like = Like.new(user_id: user02.id, post_id: post.id)
       like.save
@@ -27,19 +30,7 @@ RSpec.describe "Likes", type: :request do
 
   describe "Like Delete" do
     let(:user02) { FactoryBot.create(:user02) }
-    it "Substract Like" do
-      post login_path, params: {
-        email: user02.email,
-        password: user02.password,
-      }
-      get posts_index_path
-      expect(response).to have_http_status(:ok)
-      expect {
-        post posts_create_path, params: {
-          content: 'text',
-          user_id: user02.id,
-        }
-      }.to change(Post, :count).by(1)
+    it "substracts Like" do
       post = Post.find_by(content: 'text')
       like = Like.new(user_id: user02.id, post_id: post.id)
       like.save
