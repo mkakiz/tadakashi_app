@@ -9,7 +9,10 @@
         <%= @post.content %>
       </p>
       <div class="post-image">
-        <img src="<%= "/post_images/#{@post.post_image_name}" %>">
+        <% if @post.post_image_name.nil? %>
+        <% else %>
+          <img src="<%= "/post_images/#{@post.post_image_name}" %>">
+        <% end %>
       </div>
       <div class="post-time">
         <%= @post.created_at %>
