@@ -1,26 +1,27 @@
 version: '3'
 services:
-  web:
-    build: .
+  web: #Railsコンテナの定義。サービス名
+    build: . #docker-compose.ymlと同じディレクトリにBuild
     command: bundle exec rails s -p 3003 -b '0.0.0.0'
-    volumes:
-      - .:/app
-    ports:
-      - 3003:3003
-    depends_on:
+      #コンテナ起動時にデフォルトで実行されるコマンドを設定。ここではRails、Railsサーバ、3003を公開ポート、0.0.0.0をIPアドレスとして実行
+    volumes: #PC上のディレクトリのマウント先設定
+      - .:/app #/appディレクトリにマウント。docker-compose.ymlがあるディレクトリがコンテナの/appと共有
+    ports: #公開するポート番号：コンテナ内部の転送先ポート番号
+      - 3003:3003 #コンテナの外部に3003ポートを公開
+    depends_on: #Railsが起動する前にdbサービス{MySQL}が起動
       - db
-    tty: true
-    stdin_open: true
-  db:
+    tty: true #Railsでpryでデバックするのに必要
+    stdin_open: true #コンテナの標準入力をオープンしたままにする
+  db: #MySQLサーバコンテナの定義。サービス名
     image: mysql:5.7
-    volumes:
-      - db-volume:/var/lib/mysql
-    environment:
+    volumes: #PC上のディレクトリのマウント先設定
+      - db-volume:/var/lib/mysql #PC上で作成したデータベースをコンテナ上の/var/liv/mysql領域にマウント、保存
+    environment: #コンテナ内の環境変数を設定
       MYSQL_ROOT_PASSWORD: password
   adminer:
     image: adminer
-    restart: always
+    restart: always #stop がされない限り常に再起動
     ports:
       - 8880:8080
-volumes:
+volumes: #PC上にdb-volumeという名前でボリューム（データ保持領域）を作成。コンテナ削除でもPC上にデータベースを残す
   db-volume:
