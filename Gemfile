@@ -51,7 +51,6 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-  gem 'pry-byebug'
   gem 'spring-commands-rspec'
 end
 
@@ -66,7 +65,6 @@ group :test do
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.16.2'
   gem 'guard-minitest',           '2.4.4'
-  gem 'pry-byebug'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
