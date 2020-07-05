@@ -12,8 +12,8 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
@@ -78,7 +78,6 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-
 
     <%= yield %>
   </body>
