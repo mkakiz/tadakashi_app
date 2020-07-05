@@ -12,6 +12,8 @@ services:
       - db
     tty: true #Railsでpryでデバックするのに必要
     stdin_open: true #コンテナの標準入力をオープンしたままにする
+    links: #dbとリンクさせる.
+      - db
   db: #MySQLサーバコンテナの定義。サービス名
     image: mysql:5.7
     volumes: #PC上のディレクトリのマウント先設定
