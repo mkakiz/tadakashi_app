@@ -15,4 +15,4 @@ jobs:
       - ruby/bundle-install
       - run:
           name: db create
-          command: docker-compose exec --env 'RAILS_ENV=test' web rails db:create
+          command: bundle exec rails db:create
