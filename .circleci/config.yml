@@ -15,4 +15,4 @@ jobs:
       - ruby/bundle-install
       - run:
           name: db create
-          command: bundle exec rake db:create
+          command: bundle exec rake db:schema:load
