@@ -1,4 +1,4 @@
-FROM ruby:2.6.3
+FROM ruby:2.7.1
   #ベースイメージを指定
 RUN apt-get update -qq && apt-get install -y build-essential nodejs
   #nodejsをインストール

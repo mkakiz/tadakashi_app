@@ -73,11 +73,13 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
-  <<: *default
-  database: app_production
-  username: app
-  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+#
+
+# used to use this prod, instead of the above.
+#production:
+#  <<: *default
+#  database: app_production
+#  username: app
+#  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
