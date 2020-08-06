@@ -10,14 +10,17 @@
               <%= message %>
             </div>
           <% end %>
-
-            <textarea name="content"><%= @post.content %></textarea>
-            <p>画像</p>
-            <input name="image" type="file">
-            <input type="submit" value="投稿">
-
+          <div id="app">
+            <textarea name="content" v-model.trim="textCount" maxlength="140" placeholder="140 characters max"><%= @post.content %></textarea>
+            <p>{{ textCount.length }}/20</p>
+          </div>
+          </br>
+          <p>画像</p>
+          <input name="image" type="file">
+          <input type="submit" value="投稿">
         </div>
       </div>
     <% end %>
   </div>
+  <%= javascript_include_tag 'vue.js' %>
 </div>
