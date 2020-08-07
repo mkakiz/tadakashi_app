@@ -11,8 +11,8 @@
             </div>
           <% end %>
           <div id="app">
-            <textarea name="content" v-model.trim="textCount" maxlength="140" placeholder="140 characters max"><%= @post.content %></textarea>
-            <p>{{ textCount.length }}/20</p>
+            <textarea name="content" v-model.trim="postText" maxlength="140" placeholder="140 characters max"><%= @post.content %></textarea>
+            <p><div align="right">{{ postText.length }}/140</div></p>
           </div>
           </br>
           <p>画像</p>
