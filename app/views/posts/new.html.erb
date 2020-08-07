@@ -11,7 +11,7 @@
             </div>
           <% end %>
           <div id="app">
-            <textarea name="content" v-model.trim="textCount" maxlength="140" placeholder="140 characters max"><%= @post.content %></textarea>
+            <textarea name="content" v-model.trim="textCount" maxlength="<%= @content_max_length %>" placeholder="140 characters max"><%= @post.content %></textarea>
             <p>{{ textCount.length }}/20</p>
           </div>
           </br>
