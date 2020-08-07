@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @content_max_length = Post::CONTENT_MAX_LENGTH
   end
 
   def create
