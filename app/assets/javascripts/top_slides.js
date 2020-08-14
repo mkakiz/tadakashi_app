@@ -7,7 +7,6 @@ const top_slides = function() {
     components: {
       'carousel-3d': Carousel3d.Carousel3d,
       'slide': Carousel3d.Slide,
-      speed: 1000,
     }
   });
 }
