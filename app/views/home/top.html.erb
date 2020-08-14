@@ -5,11 +5,24 @@
         <div v-html="message"></div>
       </transition>
     </div>
-    <!-- <%= javascript_include_tag 'vue.js' %> -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div id="top_slides">
+            <carousel-3d :controls-visible="true" :clickable="false" :autoplay="true" :autoplay-timeout="5000" :display="3">
+                <slide v-for="(slide, i) in slides" :index="i">
+                <div class="slide__text">Description</div>
+                <img class="top-img" src="/friends.jpg">
+                </slide>
+            </carousel-3d>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <img class="about-img" src="/friends.jpg">
   <script>
     run_app_vue()
+    top_slides()
   </script>
 </div>
 
