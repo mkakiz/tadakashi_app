@@ -10,15 +10,18 @@
         <div class="swiper-slide">
           <div id="top_slides">
           <carousel-3d
-            :controls-visible="true"
-            :clickable="false"
-            :autoplay="false"
-            :autoplay-timeout="5000"
-            :display="3" @after-slide-change="onAfterSlideChange">
-            <slide v-for="(data, i) in slideData" :index="i">
-              <div class="slide__text">{{ data.text }}</div>
-              <img class="top-img" :src="data.image" />
-            </slide>
+          :controls-visible="true"
+          :clickable="false"
+          :autoplay="false"
+          :autoplay-timeout="5000"
+          :display="3"
+          @after-slide-change="onAfterSlideChange">
+          <slide v-for="(slide, i) in slides" :index="i">
+            <div class="slide__text">{{ slide.text }}</div>
+            <img class="top-img" :src="slide.image" />
+              <!-- <div class="slide__text">{{ descriptions[i] }}</div> -->
+              <!-- <img class="top-img" src="/friends.jpg"> -->
+          </slide>
           </carousel-3d>
           </div>
         </div>
