@@ -79,3 +79,7 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+      - add_ssh_keys:
+          fingerprints:
+            - "4e:30:99:89:1a:fe:f7:55:88:e9:85:b4:ad:09:cc:a4"
