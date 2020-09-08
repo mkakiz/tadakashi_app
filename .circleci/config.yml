@@ -22,10 +22,10 @@ jobs:
       environment:
         - BUNDLER_VERSION: 2.0.2
         - RAILS_ENV: 'test'
-    # - image: circleci/mysql:5.7
-    #   environment:
-    #     - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-    #     - MYSQL_ROOT_HOST: '127.0.0.1'
+    - image: circleci/mysql:5.7
+      environment:
+        - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+        - MYSQL_ROOT_HOST: '127.0.0.1'
 
     working_directory: ~/tadakashi_app  #自身のアプリディレクトリ名を設定
 
@@ -48,15 +48,15 @@ jobs:
           - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # # Database setup
-      # - run: mv ./config/database.yml.ci ./config/database.yml
+      # Database setup
+      - run: mv ./config/database.yml.ci ./config/database.yml
 
-      # # Database setup
-      # - run:
-      #     name: Databasesetup
-      #     command: |
-      #        bundle exec rake db:create
-      #        bundle exec rake db:schema:load
+      # Database setup
+      - run:
+          name: Databasesetup
+          command: |
+             bundle exec rake db:create
+             bundle exec rake db:schema:load
 
       # run tests!
       - run:
