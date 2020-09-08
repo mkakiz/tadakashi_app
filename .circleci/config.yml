@@ -14,7 +14,7 @@
 #           command: bundle -v
 #       - ruby/bundle-install
 
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
