@@ -93,11 +93,11 @@ jobs:
         # CircleCI に登録した環境変数を使って SSH
         #- run: ssh ${USER_NAME}@${HOST_NAME} 'cd && git pull'
         - run: ssh ${USER_NAME}@${HOST_NAME}
-         - run:
-             command: |
-               sudo mkdir /var/www/projects
-               cd /var/www/projects
-               git pull
+        - run:
+            command: |
+              sudo mkdir /var/www/projects
+              cd /var/www/projects
+              git pull
 
 # workflows:
 #     version: 2
