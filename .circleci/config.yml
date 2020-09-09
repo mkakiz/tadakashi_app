@@ -88,8 +88,8 @@ jobs:
         - checkout
         # CircleCI に登録した秘密鍵を呼び出す
         - add_ssh_keys:
-            fingerprints:
-              - "4e:30:99:89:1a:fe:f7:55:88:e9:85:b4:ad:09:cc:a4"
+            #fingerprints:
+            #  - "4e:30:99:89:1a:fe:f7:55:88:e9:85:b4:ad:09:cc:a4"
         # CircleCI に登録した環境変数を使って SSH
         #- run: ssh ${USER_NAME}@${HOST_NAME} 'cd && git pull'
         - run: ssh ${USER_NAME}@${HOST_NAME}
