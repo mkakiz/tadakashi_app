@@ -93,11 +93,12 @@ jobs:
         # CircleCI に登録した環境変数を使って SSH
         #- run: ssh ${USER_NAME}@${HOST_NAME} 'cd tadakashi_app && git pull'
         - run: ssh ${USER_NAME}@${HOST_NAME}
+        - run: sudo yum update -y
         - run:
             command: |
-              sudo yum update
-              sudo -p mkdir /var/www/projects/tadakashi_app
-              cd /var/www/projects/tadakashi_app
+              sudo yum update -y
+              sudo mkdir -p var/www/projects/tadakashi_app
+              cd var/www/projects/tadakashi_app
               git pull
 
 workflows:
