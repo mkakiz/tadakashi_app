@@ -1,19 +1,3 @@
-# version: 2.1
-# orbs:
-#   ruby: circleci/ruby@0.1.2
-
-# jobs:
-#   build:
-#     docker:
-#       - image: circleci/ruby:2.6.3-stretch-node
-#     executor: ruby/default
-#     steps:
-#       - checkout
-#       - run:
-#           name: Which bundler?
-#           command: bundle -v
-#       - ruby/bundle-install
-
 version: 2
 jobs:
   build:
@@ -27,7 +11,7 @@ jobs:
         - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
         - MYSQL_ROOT_HOST: '127.0.0.1'
 
-    working_directory: ~/tadakashi_app  #自身のアプリディレクトリ名を設定
+    working_directory: ~/tadakashi_app
 
     steps:
       - checkout
@@ -55,8 +39,8 @@ jobs:
       - run:
           name: Databasesetup
           command: |
-             bundle exec rake db:create
-             bundle exec rake db:schema:load
+            bundle exec rake db:create
+            bundle exec rake db:schema:load
 
       # run tests!
       - run:
@@ -88,20 +72,10 @@ jobs:
         - checkout
         # CircleCI に登録した秘密鍵を呼び出す
         - add_ssh_keys:
-            #fingerprints:
-            #  - "4e:30:99:89:1a:fe:f7:55:88:e9:85:b4:ad:09:cc:a4"
         # CircleCI に登録した環境変数を使って SSH
-        - run: ssh ${USER_NAME}@${HOST_NAME} 'cd tadakashi_app &&
+        - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/projects/tadakashi_app &&
                 git remote add origin https://github.com/mkakiz/tadakashi_app.git &&
                 git pull origin master'
-        #- run: ssh ${USER_NAME}@${HOST_NAME}
-        #- run: sudo mkdir var
-        #- run: sudo yum update -y
-        # - run:
-        #     command: |
-        #       sudo mkdir -p var/www/projects/tadakashi_app
-        #       cd var/www/projects/tadakashi_app
-        #       git pull
 
 workflows:
     version: 2
