@@ -14,6 +14,13 @@
           <img src="<%= "/post_images/#{@post.post_image_name}" %>">
         <% end %>
       </div>
+      <% if @post.address.nil? %>
+      <% else %>
+        <%= content_tag(:iframe,
+        'map',
+        src:'https://www.google.com/maps/embed/v1/place?key=AIzaSyDvLBjd9JIGFAdyn4fmlh8EVLBuKB8Bh2k&q=' + @post.address, width: 400, height: 400, frameborder: 0) %>
+      <% end %>
+      <br/>
       <div class="post-time">
         <%= @post.created_at %>
       </div>

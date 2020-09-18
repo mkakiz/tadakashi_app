@@ -32,17 +32,14 @@ jobs:
           - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # Database setup
       - run: mv ./config/database.yml.ci ./config/database.yml
 
-      # Database setup
       - run:
           name: Databasesetup
           command: |
             bundle exec rake db:create
             bundle exec rake db:schema:load
 
-      # run tests!
       - run:
           name: Run rspec
           command: |
@@ -57,7 +54,6 @@ jobs:
               --format progress \
               $TEST_FILES
 
-      # collect reports
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
@@ -70,25 +66,19 @@ jobs:
         image: circleci/classic:edge
     steps:
         - checkout
-        # CircleCI に登録した秘密鍵を呼び出す
         - add_ssh_keys:
-        # CircleCI に登録した環境変数を使って SSH
         - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/projects/tadakashi_app &&
                 git remote add origin https://github.com/mkakiz/tadakashi_app.git &&
                 git pull origin master'
 
 workflows:
     version: 2
-    # build_and_deploy ジョブ: 一番最初に呼ばれるジョブ
     build_and_deploy:
-        # build ジョブと deploy ジョブを呼び出す
         jobs:
             - build
             - deploy:
                 requires:
-                    # deploy ジョブより先に build ジョブを実行しろ！
                     - build
-                # master ブランチに push された場合のみ deploy ジョブを実行する
                 filters:
                     branches:
                         only: master

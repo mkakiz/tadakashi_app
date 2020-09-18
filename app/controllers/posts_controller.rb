@@ -21,7 +21,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(
       content: params[:content],
-      user_id: @current_user.id
+      user_id: @current_user.id,
+      address: params[:address] #Add for address
     )
 
     if @post.save #DB保存して、@post.id発行
@@ -45,6 +46,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
+    @post.address = params[:address] #Add for address
     if @post.save
       flash[:notice] = "投稿を編集しました"
       redirect_to("/posts/index")
