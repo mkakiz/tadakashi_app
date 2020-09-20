@@ -45,7 +45,7 @@
       <ul class="header-menus">
         <% if @current_user %>
           <li>
-            <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
+            <div class="btn btn-warning"><%= link_to(@current_user.name, "/users/#{@current_user.id}") %></div>
           </li>
           <li>
             <button type="submit" class="btn btn-primary"><%= link_to("投稿一覧", "/posts/index") %></button>

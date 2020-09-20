@@ -7,11 +7,14 @@
     <div class="form-group">
       <%= f.label :name, '名前' %>
       <%= f.text_field :name, class: 'form-control' %>
-    </div>
-    <div class="form-group">
+      <br/>
       <%= f.label :comment, 'コメント' %>
       <%= f.text_area :comment, class: 'form-control', rows: 4 %>
-    </div>
+      <br/>
+      <%= f.label :address, 'アドレス' %>
+      <%= f.text_area :address, class: 'form-control', rows: 1 %>
+      <br/>
     <%= f.submit '送信', class: 'btn btn-primary' %>
+    </div>
   <% end %>
 </div>

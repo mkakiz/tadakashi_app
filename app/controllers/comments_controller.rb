@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     comment.user_id = @current_user.id
+    #comment.address = params[:address] #Add for address
     if comment.save
       flash[:notice] = 'Comment was posted'
       redirect_to posts_index_path(comment.post_id)
@@ -22,6 +23,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:post_id, :name, :comment, :user_id)
+    params.require(:comment).permit(:post_id, :name, :comment, :user_id, :address)
   end
 end

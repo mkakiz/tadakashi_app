@@ -1,5 +1,22 @@
 <div class="main posts-index">
+
+
+
+
   <div class="container">
+    <div class="posts-search">
+      <%= form_tag('/posts/index', method: 'get') do %>
+        <%= label_tag(:content_key, 'Search Content:') %>
+        <%= text_field_tag(:content_key) %>
+        <button type="submit" class="btn btn-info">
+          <%= submit_tag('Search') %>
+        </button>
+        <button type="submit" class="btn btn-info">
+          <%= link_to 'Clear', '/posts/index' %>
+        </button>
+      <% end %>
+    </div>
+
     <% @posts.each do |post| %>
       <div class="posts-index-item">
         <div class="post-left">

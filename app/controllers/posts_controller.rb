@@ -4,6 +4,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
+    if params[:content_key]
+      @posts = Post.where('content LIKE ?', "%#{params[:content_key]}%")
+    else
+      @posts = Post.all.order(created_at: :desc)
+    end
   end
 
   def show
@@ -69,5 +74,7 @@ class PostsController < ApplicationController
       redirect_to("/posts/index")
     end
   end
+
+
 
 end

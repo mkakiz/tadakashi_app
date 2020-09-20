@@ -15,6 +15,28 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+
+#  def create
+#    @user = User.new(
+#      name: params[:name],
+#      email: params[:email],
+#      if params[:image]
+#        File.binwrite("public/user_images/#{@user.image_name}", image.read)
+#      else
+#        image_name: "default_user.jpg"
+#      end
+#      password: params[:password]
+#    )
+#    if @user.save
+#      session[:user_id] = @user.id
+#      flash[:notice] = "ユーザー登録が完了しました"
+#      redirect_to("/users/#{@user.id}")
+#    else
+#      render("users/new")
+#    end
+#  end
+
+
   def create
     @user = User.new(
       name: params[:name],
@@ -99,5 +121,6 @@ class UsersController < ApplicationController
       redirect_to("/posts/index")
     end
   end
+
 
 end
