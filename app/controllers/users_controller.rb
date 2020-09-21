@@ -46,8 +46,17 @@ class UsersController < ApplicationController
     )
     if @user.save
       session[:user_id] = @user.id
+      if params[:image]
+        @user.image_name = "#{@user.id}.jpg"
+        image = params[:image]
+        File.binwrite("public/user_images/#{@user.image_name}", image.read)
+      end
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/users/#{@user.id}")
+#    if @user.save
+#      session[:user_id] = @user.id
+#      flash[:notice] = "ユーザー登録が完了しました"
+#      redirect_to("/users/#{@user.id}")
     else
       render("users/new")
     end
