@@ -11,7 +11,7 @@ const top_slides = function() {
     //},
     slideData: [
       {text: 'Find', src: 'finditem.jpg'},
-      {text: '', src: 'messaging.jpg'},
+      {text: '', src: 'message.jpg'},
       {text: '', src: 'getitem.jpg'}
       ],
       texts: [
