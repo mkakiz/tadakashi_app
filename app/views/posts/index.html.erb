@@ -24,6 +24,10 @@
             <%= link_to(post.user.name, "/users/#{post.user.id}") %>
           </div>
           <%= link_to(post.content, "/posts/#{post.id}") %>
+          <br />
+          <div class="p-comment__bottomLine">
+            <%= post.created_at %>
+          </div>
         </div>
       </div>
     <% end %>
