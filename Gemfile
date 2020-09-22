@@ -41,8 +41,12 @@ gem 'activesupport', '~> 5.2.4.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+#Map
 gem 'geocoder'
 gem 'gmaps4rails'
+
+#Local time view
+gem 'local_time'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
