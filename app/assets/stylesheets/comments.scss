@@ -38,3 +38,9 @@
     margin: 0 12px;
   }
 }
+.submit-button {
+  :hover {
+    color: white;
+    transform: translate(2px, 2px);
+  }
+}

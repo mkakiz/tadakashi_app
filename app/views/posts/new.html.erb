@@ -20,8 +20,11 @@
           <br/>
           <p>アドレス（郵送先、待ち合わせ場所）</p>
           <input name="address" type="text" placeholder="50 characters max"><%= @post.address %></input>
-          <br>
-          <input type="submit" value="投稿">
+          <br><br>
+          <div class="post-menu">
+            <button type="submit" class='btn btn-primary' >投稿</button>
+            <%# input type="submit" value="投稿" %>
+          </div>
         </div>
       </div>
     <% end %>
