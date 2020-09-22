@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   before_save { self.email = email.downcase }
   has_many :posts
+  has_many :comments
 
   #def posts
   #  return Post.where(user_id: self.id)
