@@ -22,7 +22,7 @@ RSpec.describe "Comments", type: :request do
           comment: {
             comment: 'koment',
             post_id: post.id,
-            name: 'name',
+            address: 'tokyo',
             user_id: user02.id,
           }
         }
@@ -39,7 +39,7 @@ RSpec.describe "Comments", type: :request do
           comment: {
             comment: '',
             post_id: post.id,
-            name: '',
+            address: '',
             user_id: user02.id,
           }
         }
@@ -56,7 +56,7 @@ RSpec.describe "Comments", type: :request do
           comment: {
             comment: 'koment',
             post_id: post.id,
-            name: 'name',
+            address: 'tokyo',
             user_id: user02.id,
           }
         }
