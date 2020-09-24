@@ -21,8 +21,9 @@
       <% end %>
       <br/>
       <div class="post-time">
-        <%= @post.created_at %>
+        <%= l @post.created_at %>
       </div>
+      <br/><br/>
       <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
         <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
           <span class="fa fa-heart like-btn-unlike"></span>

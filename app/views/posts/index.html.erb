@@ -24,6 +24,10 @@
             <%= link_to(post.user.name, "/users/#{post.user.id}") %>
           </div>
           <%= link_to(post.content, "/posts/#{post.id}") %>
+          <br/><br/>
+          <div class="post-time">
+            <%= l post.created_at %>
+          </div>
         </div>
       </div>
     <% end %>

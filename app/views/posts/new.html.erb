@@ -5,11 +5,14 @@
     <%= form_tag("/posts/create", {multipart: true}) do %>
       <div class="form">
         <div class="form-body">
+
           <% @post.errors.full_messages.each do |message| %>
             <div class="form-error">
               <%= message %>
             </div>
           <% end %>
+          <br/>
+          <p>投稿内容</p>
           <div id="app">
             <textarea name="content" v-model.trim="postText" maxlength="<%= @content_max_length %>" placeholder="140 characters max"><%= @post.content %></textarea>
             <p><div align="right">{{ postText.length }}/<%= @content_max_length %></div></p>
