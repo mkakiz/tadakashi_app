@@ -78,6 +78,15 @@ $shadow-color: #c1ced7;
     font-weight: 200;
     padding: 0 6px 0 8px;
   }
+  .btn-primary {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    &:hover {
+      color: white;
+      transform: translate(2px, 2px);
+    }
+  }
 }
 
 .user-tabs {
