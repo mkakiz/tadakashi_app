@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+本アプリのコンセプト：
 
-Things you may want to cover:
+タダカシは無料の物々交換サービスです。
+キャンプ用具や芝刈り機やパーティグッズなど、
+いつもは使わないけど後日使う物は売りたくない。
+それなら無料でシェアしませんか？がコンセプトです。
 
-* Ruby version
+URL:
+http://tadakashi.com
 
-* System dependencies
+機能リスト：
+・ユーザー登録
+・記事投稿（テキスト、画像、地図情報）
+・いいね
+・自ユーザーページでいいねした記事一覧表示
+・記事検索
 
-* Configuration
+利用の流れ：
+1. 貸せる物を投稿（テキスト+写真+交換場所または郵送先）
+2. 借りたい物にコメントして日時や交換方法などについて確認
+3. 合意後に交換
+貸せる物が多いほど相手から何かを借りられるチャンスが多くなるメリットがあります。
 
-* Database creation
+制作の理由：
+「こんなサービスがあったら使いたい」と思ったのがキッカケです。
+「断捨離」という言葉が流行っているように、誰でも意外と使っていない物を持っているものです。
+もう2度と使わないと確信できるなら売却してもいいでしょうが、後で使いそうなものは売ってしまうのはもったいないです。
+自分が使わない間は誰かに貸して、しかも相手が使ってないものを無料で使えればより豊かになれると思い制作しました。
 
-* Database initialization
+設計図：
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+環境・使用技術：
+・Ruby 2.6.3
+・Rails 5.2.4、RSpec
+・MySQL2
+・AWS（EC2、RDS for MySQL、Route53、CloudWatch）
+・Nginx、Unicorn
+・Docker
+・Terraform
+・CircleCI (CD/CI)
