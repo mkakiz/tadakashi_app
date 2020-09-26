@@ -37,3 +37,6 @@ git rm --cached .env
 
 # Ignore terraform.tfvars.
 /terraform/terraform.tfvars
+
+# Readme
+/readme.md
