@@ -53,6 +53,9 @@ body {
   min-height: 1vh;
 }
 
+p {
+  font-size: 20px;
+}
 .main {
   position: absolute;
   top: 64px;
@@ -73,6 +76,7 @@ body {
 /* ヘッダー ================================ */
 header {
   height: 64px;
+  background-color: #6d9bd8;
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -166,7 +170,7 @@ header {
 }
 
 .swiper-slide {
-  height: 500px;
+  height: 300px;
   overflow: hidden;
 
   & > img {
@@ -209,25 +213,26 @@ header {
   }
 }
 
-
-/* about ================================ */
-.about-main {
-  padding: 100px 8% 0;
-  color: white;
-  h2 {
-    font-size: 64px;
-    font-weight: 500;
-    line-height: 1.4;
-  }
-  p {
-    padding: 10px;
-    font-weight: 200;
-    font-size: 20px;
+.row {
+  & .wording {
+    left: 100;
   }
 }
 
+h2 {
+  padding: 50px 0px 0px 0px;
+}
+
+/* about ================================ */
+.about-main {
+  padding: 50px 8% 0;
+  font-size: 16px;
+  color: white;
+}
+
 .about-img {
-  width: 40%;
+  width: 100%;
+  height: 100%;
 }
 
 /* フォーム================================ */
@@ -282,6 +287,11 @@ header {
 
 .form-error {
   color: #ff4d75;
+}
+
+.list-box {
+  position: 50%;
+  width: 340px;
 }
 
 /* フラッシュ ================================ */
